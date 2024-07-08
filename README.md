@@ -9,6 +9,8 @@ Universidad Internacional de Valencia*
 Prof: Dr. Horacio Kuna
 Dictado: OCT23-24
 
+alumno: Juan Manuel Bonilla Lozano
+
 ## Descripción del contenido
 
 Carpetas:
