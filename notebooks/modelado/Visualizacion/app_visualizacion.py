@@ -9,7 +9,7 @@ df = pd.read_csv("../../../data/final/datos_finales.csv", sep=";")
 # Título del dashboard
 st.write("# 13MBID - Visualización de datos")
 st.write("## Panel de visualización generado sobre los datos de créditos y tarjetas emitidas a clientes de la entidad")
-st.write("#### Persona/s: ................")
+st.write("#### Estudiante: Juan Manuel Bonilla Lozano")
 st.write("----")
 
 # Gráficos
@@ -82,3 +82,20 @@ else:
 
 st.write(f"Cantidad de créditos con estas condiciones: {df_filtrado.shape[0]}")
 st.plotly_chart(fig)
+
+
+#crearé otro gráfico que relacione la falta de pago con el nivel educativo.
+
+option3 = st.selectbox(
+    'Elige el nivel educativo',
+     df['nivel_educativo'].unique())
+
+df_filtrado3 = df[df['nivel_educativo'] == option3]
+
+st.write(f"Nivel educativo seleccionado: {option3}")  
+
+pago_x_educacion = px.histogram(df_filtrado3, x='ingresos', 
+                                   title='Conteo de créditos por ingresos')
+pago_x_educacion.update_layout(xaxis_title='Categoría de ingresos', yaxis_title='Cantidad')
+
+st.plotly_chart(pago_x_educacion)
